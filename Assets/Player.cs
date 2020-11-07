@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
         GetComponentInChildren<CardCollection>().transform.position = new Vector3(- 1.0f * Screen.width / 200, transform.position.y, 0);
         print("Card collectio" + GetComponentInChildren<CardCollection>().transform.position.ToString());
         GetComponentInChildren<CardCollection>().w = 1.0f * Screen.width / 100;
+        GetComponentInChildren<CardCollection>().GetComponent<CardCollection>().ForceStart();
     }
 
     // Update is called once per frame

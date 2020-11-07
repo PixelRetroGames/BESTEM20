@@ -11,7 +11,7 @@ public class CardCollection : MonoBehaviour
     private float x, y;
     public float w, h, buf;
     // Start is called before the first frame update
-    void Start()
+    public void ForceStart()
     {
         x = transform.position.x;
         y = transform.position.y;
@@ -20,7 +20,6 @@ public class CardCollection : MonoBehaviour
         string inp_ln = inp_stm.ReadLine();
         while (!inp_stm.EndOfStream && i < 5)
         {
-            
             GameObject card_object = Instantiate(card_prefab, new Vector2(0, 0), Quaternion.identity);
             card_object.transform.SetParent(this.transform);
             card_object.GetComponent<Card>().Load(inp_ln);
@@ -38,13 +37,14 @@ public class CardCollection : MonoBehaviour
 
     public void RemoveCard(GameObject card) {
         cards.Remove(card);
-        RearrangeCards();
         Destroy(card);
+        RearrangeCards();
     }
     public void RearrangeCards() 
     {
-        print("x = " + x);
-        print("y = " + y);
+        print("Rearrange cards");
+        print("x = " + x.ToString());
+        print("y = " + y.ToString());
         if (cards.Count == 0) {
             return;
         }
