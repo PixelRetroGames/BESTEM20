@@ -15,17 +15,25 @@ public class CardCollection : MonoBehaviour
     {
         x = transform.position.x;
         y = transform.position.y;
+         
+        RearrangeCards();
+    }
+
+    public void Load() {
         int i = 0;
         StreamReader inp_stm = new StreamReader(file_path);
-        string inp_ln = inp_stm.ReadLine();
+        
         while (!inp_stm.EndOfStream && i < 5)
         {
+            string inp_ln = inp_stm.ReadLine();
             GameObject card_object = Instantiate(card_prefab, new Vector2(0, 0), Quaternion.identity);
             card_object.transform.SetParent(this.transform);
             card_object.GetComponent<Card>().Load(inp_ln);
+            card_object.GetComponent<Card>().file_path = inp_ln;
             cards.Add(card_object);
             i++;
-        } 
+        }
+
         RearrangeCards();
     }
 
@@ -35,6 +43,15 @@ public class CardCollection : MonoBehaviour
         
     }
 
+    public void AddCard(GameObject card) {
+        print("sunt in adauga carte bucuresteanule");
+        print(card.transform.parent.parent.gameObject.tag);
+        GameObject card_object = Instantiate(card_prefab, new Vector2(0, 0), Quaternion.identity);
+        card_object.transform.SetParent(this.transform);
+        card_object.GetComponent<Card>().Load(card.GetComponent<Card>().file_path);
+        cards.Add(card_object);
+        RearrangeCards();
+    }
     public void RemoveCard(GameObject card) {
         cards.Remove(card);
         Destroy(card);
