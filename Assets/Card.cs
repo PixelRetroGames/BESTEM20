@@ -12,7 +12,7 @@ public class Card : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Load(string file_path)
     {
         StreamReader inp_stm = new StreamReader(file_path);
         string[] var_strings = new string[]{ "name", "image", "description" };

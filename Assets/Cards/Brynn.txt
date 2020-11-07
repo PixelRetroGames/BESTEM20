@@ -1,0 +1,7 @@
+id = 7
+image = Brynn
+name = Brynn
+description = To_do
+mana = 5
+hp = 7
+attack = 3

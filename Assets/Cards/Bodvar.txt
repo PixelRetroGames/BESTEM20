@@ -1,0 +1,7 @@
+id = 6
+image = Bodvar
+name = Bodvar
+description = To_do
+mana = 1
+hp = 2
+attack = 1

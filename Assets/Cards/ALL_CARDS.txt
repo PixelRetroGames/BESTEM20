@@ -1,0 +1,10 @@
+./Assets/Cards/Ada.txt
+./Assets/Cards/Artemis.txt
+./Assets/Cards/Asuri.txt
+./Assets/Cards/Azoth.txt
+./Assets/Cards/Barraza.txt
+./Assets/Cards/Bodvar.txt
+./Assets/Cards/Brynn.txt
+./Assets/Cards/Caspian.txt
+./Assets/Cards/Cassidy.txt
+./Assets/Cards/Cross.txt

@@ -1,0 +1,7 @@
+id = 4
+image = Azoth
+name = Azoth
+description = To_do
+mana = 3
+hp = 2
+attack = 4

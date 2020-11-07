@@ -1,0 +1,7 @@
+id = 3
+image = Asuri
+name = Asuri
+description = To_do
+mana = 4
+hp = 3
+attack = 5

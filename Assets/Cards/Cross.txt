@@ -1,0 +1,7 @@
+id = 10
+image = Cross
+name = Cross
+description = To_do
+mana = 7
+hp = 6
+attack = 8

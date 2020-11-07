@@ -1,0 +1,7 @@
+id = 9
+image = Cassidy
+name = Cassidy
+description = To_do
+mana = 3
+hp = 4
+attack = 3

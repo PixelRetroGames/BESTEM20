@@ -1,0 +1,7 @@
+id = 5
+image = Barraza
+name = Barraza
+description = To_do
+mana = 2
+hp = 3
+attack = 2

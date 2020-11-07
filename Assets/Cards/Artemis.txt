@@ -1,0 +1,7 @@
+id = 2
+image = Artemis
+name = Artemis
+description = To_do
+mana = 3
+hp = 5
+attack = 1

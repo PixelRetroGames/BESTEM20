@@ -37,9 +37,21 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Card.cs" />
+     <Compile Include="Assets\CreateCards.cs" />
      <Compile Include="Assets\LookAtMe.cs" />
+     <None Include="Assets\Cards\Caspian.txt" />
+     <None Include="Assets\Cards\Cassidy.txt" />
+     <None Include="Assets\Cards\ALL_CARDS.txt" />
      <None Include="Assets\Cards\card_test2.txt" />
+     <None Include="Assets\Cards\Bodvar.txt" />
+     <None Include="Assets\Cards\Asuri.txt" />
+     <None Include="Assets\Cards\Ada.txt" />
+     <None Include="Assets\Cards\Cross.txt" />
+     <None Include="Assets\Cards\Brynn.txt" />
      <None Include="Assets\Cards\card_test.txt" />
+     <None Include="Assets\Cards\Azoth.txt" />
+     <None Include="Assets\Cards\Artemis.txt" />
+     <None Include="Assets\Cards\Barraza.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

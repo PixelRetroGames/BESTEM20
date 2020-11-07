@@ -1,0 +1,7 @@
+id = 8
+image = Caspian
+name = Caspian
+description = To_do
+mana = 2
+hp = 2
+attack = 3

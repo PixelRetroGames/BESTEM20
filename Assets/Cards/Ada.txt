@@ -1,0 +1,7 @@
+id = 1
+image = Ada
+name = Ada
+description = "To_do"
+mana = 1
+hp = 1
+attack = 2
