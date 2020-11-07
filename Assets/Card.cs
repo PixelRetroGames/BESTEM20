@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 using System;
 
@@ -29,8 +30,11 @@ public class Card : MonoBehaviour
                 if (var_name.Equals(var_strings[i]))
                 {
                     string value = parts[1];
+                    value = value.TrimStart(' ');
+                    value = value.TrimEnd(' ');
                     print(var_name + " := " + value);
                     printed = true;
+                    
                     if (var_name.Equals("name")) {
                         name = value;
                     } else if (var_name.Equals("image")) {
@@ -56,6 +60,20 @@ public class Card : MonoBehaviour
                 }
             }
         }
+
+        // Set the card attributes
+        Text[] attributes = GetComponentsInChildren<Text>();
+        attributes[0].text = attack.ToString();
+        attributes[1].text = hp.ToString();
+        attributes[2].text = name;
+        attributes[3].text = description;
+        attributes[4].text = mana.ToString();
+
+        // Set the card image
+        SpriteRenderer image_sprite = (GetComponentsInChildren<SpriteRenderer>())[1];
+        print(Application.dataPath);
+        print(Resources.Load<Sprite>(image));
+        image_sprite.sprite = Resources.Load<Sprite>(image);
 
         inp_stm.Close();
     }

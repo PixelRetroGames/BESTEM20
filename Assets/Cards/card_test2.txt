@@ -1,0 +1,7 @@
+id = 1
+image = fs
+name = Florin Nebunu
+description = Wryyy
+mana = 7
+hp = 9
+attack = 6
