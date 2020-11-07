@@ -32,7 +32,7 @@ public class PlayCard : MonoBehaviour
             Destroy(card);
         } else {
             // Handle hand
-            print("sunt in mana shaveico");
+            player.GetComponentInChildren<Mana>().SpendMana(card.GetComponent<Card>().mana);
             play_collection.GetComponent<CardCollection>().RemoveCard(card);
             player.GetComponent<Player>().board.AddCard(card);
         }

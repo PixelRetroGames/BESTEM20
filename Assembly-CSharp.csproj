@@ -42,6 +42,7 @@
      <Compile Include="Assets\CreateCards.cs" />
      <Compile Include="Assets\Hand.cs" />
      <Compile Include="Assets\LookAtMe.cs" />
+     <Compile Include="Assets\Mana.cs" />
      <Compile Include="Assets\PlayCard.cs" />
      <Compile Include="Assets\Player.cs" />
      <None Include="Assets\Cards\Caspian.txt" />

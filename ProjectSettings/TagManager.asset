@@ -6,6 +6,7 @@ TagManager:
   tags:
   - board
   - hand
+  - Card
   layers:
   - Default
   - TransparentFX
