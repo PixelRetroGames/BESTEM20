@@ -19,6 +19,8 @@ public class ButtonPress : MonoBehaviour
 
     public void onClick() {
         print("poc");
-         SceneManager.LoadScene("SampleScene");
+        System.Diagnostics.Process.Start(Application.dataPath.Replace("_Data", ".exe")); //new program
+        Application.Quit(); //kill current process
+
     }
 }

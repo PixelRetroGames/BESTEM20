@@ -11,15 +11,9 @@ public class WindCondition : MonoBehaviour
         hp1 = game.players[0].GetComponentInChildren<Health>().health;
         hp2 = game.players[1].GetComponentInChildren<Health>().health;
         if (hp2 == 0) {
-            foreach (GameObject o in Object.FindObjectsOfType<GameObject>()) {
-                 Destroy(o);
-            }
-            Application.LoadLevel("WinScene");
+            game.transform.GetChild(5).gameObject.SetActive(true);
         } else if (hp1 == 0) {
-            foreach (GameObject o in Object.FindObjectsOfType<GameObject>()) {
-                 Destroy(o);
-            }
-            Application.LoadLevel("OpponentWon");
+            game.transform.GetChild(6).gameObject.SetActive(true);
         } 
     }
     // Start is called before the first frame update
