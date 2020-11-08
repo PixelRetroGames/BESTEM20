@@ -17,6 +17,11 @@ public class EndTurn : MonoBehaviour
 
     public void OnClick() {
         // for two players break glass
-        transform.parent.parent.GetComponentInChildren<Player>().GetComponentInChildren<Mana>().AddMana();
+        var player = transform.parent.parent.GetComponentInChildren<Player>();
+        player.GetComponentInChildren<Mana>().AddMana();
+        string card_path = player.GetComponentInChildren<DeckCards>().NextCard();
+        if (card_path != null) {
+            player.hand.AddCard(card_path);
+        }
     }
 }

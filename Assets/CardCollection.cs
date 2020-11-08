@@ -18,31 +18,20 @@ public class CardCollection : MonoBehaviour
          
         RearrangeCards();
     }
-
-    public void Load() {
-        int i = 0;
-        StreamReader inp_stm = new StreamReader(file_path);
-        
-        while (!inp_stm.EndOfStream && i < 5)
-        {
-            string inp_ln = inp_stm.ReadLine();
-            GameObject card_object = Instantiate(card_prefab, new Vector2(0, 0), Quaternion.identity);
-            card_object.transform.SetParent(this.transform);
-            card_object.GetComponent<Card>().Load(inp_ln);
-            card_object.GetComponent<Card>().file_path = inp_ln;
-            cards.Add(card_object);
-            i++;
-        }
-
-        RearrangeCards();
-    }
-
     // Update is called once per frame
     void Update()
     {
         
     }
 
+
+    public void AddCard(string path) {
+        GameObject card_object = Instantiate(card_prefab, new Vector2(0, 0), Quaternion.identity);
+        card_object.transform.SetParent(this.transform);
+        card_object.GetComponent<Card>().Load(path);
+        cards.Add(card_object);
+        RearrangeCards();
+    }
     public void AddCard(GameObject card) {
         print("sunt in adauga carte bucuresteanule");
         print(card.transform.parent.parent.gameObject.tag);

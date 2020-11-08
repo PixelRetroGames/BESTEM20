@@ -8,10 +8,13 @@ public class Player : MonoBehaviour
 
     public CardCollection hand;
     public CardCollection board;
+    private DeckCards deck;
 
     public float board_hand_buf;
+    public int number_of_starting_cards;
     void Start()
     {
+        deck = GetComponentInChildren<DeckCards>();
         print("Screen width = " + Screen.width.ToString());
         hand = GetComponentsInChildren<CardCollection>()[0];
         board = GetComponentsInChildren<CardCollection>()[1];
@@ -24,9 +27,11 @@ public class Player : MonoBehaviour
         print("Card collectio" + GetComponentInChildren<CardCollection>().transform.position.ToString());
         hand.w = 1.0f * Screen.width / 100;
         hand.ForceStart();
-        hand.Load();
+        for (int i = 0; i < number_of_starting_cards; i++) {
+            hand.AddCard(deck.NextCard());
+        }
 
-        board.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y - board_hand_buf, 0);
+        board.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + board_hand_buf, 0);
         board.w = hand.w;
         board.ForceStart();
         

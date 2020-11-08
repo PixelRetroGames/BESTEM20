@@ -11,7 +11,8 @@ public class Mana : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mana = 5;
+        mana = 1;
+        current_mana_max = 1;
         UpdateMana();
     }
 
