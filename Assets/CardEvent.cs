@@ -12,6 +12,8 @@ public class CardEvent : MonoBehaviour
 
     
     void OnMouseOver() {
+        GameObject game = GameObject.FindGameObjectWithTag("game");
+        print(game.tag);
         GameObject card = transform.parent.gameObject;
         if (card.transform.parent.parent.tag.Equals("hand")) 
         {
