@@ -16,15 +16,13 @@ public class PlayCard : MonoBehaviour
     {
         
     }
-
-    public void Play() {
-        print("Click registered");
-        GameObject play_collection = this.transform.parent.parent.parent.gameObject;
+    public void Play2(GameObject card) {
+        GameObject play_collection = card.transform.parent.gameObject;
         GameObject player = play_collection.transform.parent.parent.gameObject;
-        GameObject card = this.transform.parent.parent.gameObject;
 
         // play_collection.GetComponent<CardCollection>().RemoveCard(this.transform.parent.parent.gameObject);
         print("ionut e un scump cauzat naturii " + play_collection.tag);
+        print(card.GetComponent<Card>().name);
         if (play_collection.transform.parent.gameObject.tag.Equals("board")) {
             // Handle board
             print("sunt pe masa saule");
@@ -36,5 +34,10 @@ public class PlayCard : MonoBehaviour
             play_collection.GetComponent<CardCollection>().RemoveCard(card);
             player.GetComponent<Player>().board.AddCard(card);
         }
+    }
+    public void Play() {
+        print("Click registered");
+        GameObject card = this.transform.parent.parent.gameObject;
+        Play2(card);
     } 
 }

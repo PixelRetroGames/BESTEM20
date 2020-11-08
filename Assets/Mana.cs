@@ -6,13 +6,11 @@ using System;
 
 public class Mana : MonoBehaviour
 {
-    private int mana, current_mana_max;
+    public int mana, current_mana_max;
     public int mana_max;
     // Start is called before the first frame update
     void Start()
     {
-        mana = 1;
-        current_mana_max = 1;
         UpdateMana();
     }
 

@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\AI.cs" />
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardCollection.cs" />
      <Compile Include="Assets\CardEvent.cs" />

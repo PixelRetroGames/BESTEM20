@@ -8,6 +8,7 @@ TagManager:
   - hand
   - Card
   - game
+  - Opponent
   layers:
   - Default
   - TransparentFX

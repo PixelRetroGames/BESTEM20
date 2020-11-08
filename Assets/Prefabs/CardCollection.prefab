@@ -49,4 +49,4 @@ MonoBehaviour:
   file_path: ./Assets/Cards/ALL_CARDS.txt
   w: 10
   h: 5
-  buf: 1.5
+  buf: 1.4

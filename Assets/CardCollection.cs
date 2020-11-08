@@ -25,11 +25,26 @@ public class CardCollection : MonoBehaviour
     }
 
 
+    private void ActivateCardBack(GameObject card) {
+        // var game = GameObject.FindGameObjectWithTag("game").GetComponent<Game>();
+         if (transform.parent.parent.gameObject.tag.Equals("Opponent")) {
+            card.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        if (transform.parent.gameObject.tag.Equals("hand") && transform.parent.parent.gameObject.tag.Equals("Opponent")) {
+            card.transform.GetChild(9).gameObject.SetActive(true);
+        }
+
+       
+
+    }
+
+
     public void AddCard(string path) {
         GameObject card_object = Instantiate(card_prefab, new Vector2(0, 0), Quaternion.identity);
         card_object.transform.SetParent(this.transform);
         card_object.GetComponent<Card>().Load(path);
         cards.Add(card_object);
+        ActivateCardBack(card_object);
         RearrangeCards();
     }
     public void AddCard(GameObject card) {
@@ -39,6 +54,7 @@ public class CardCollection : MonoBehaviour
         card_object.transform.SetParent(this.transform);
         card_object.GetComponent<Card>().Load(card.GetComponent<Card>().file_path);
         cards.Add(card_object);
+        ActivateCardBack(card_object);
         RearrangeCards();
     }
     public void RemoveCard(GameObject card) {

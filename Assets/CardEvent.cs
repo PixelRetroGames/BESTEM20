@@ -12,18 +12,15 @@ public class CardEvent : MonoBehaviour
 
     
     void OnMouseOver() {
-        GameObject game = GameObject.FindGameObjectWithTag("game");
-        print(game.tag);
         GameObject card = transform.parent.gameObject;
         if (card.transform.parent.parent.tag.Equals("hand")) 
         {
             GameObject mana_obj = card.transform.parent.parent.parent.GetComponentInChildren<Mana>().gameObject;
-            if (card.GetComponent<Card>().mana <= mana_obj.GetComponent<Mana>().GetMana()) 
-            {
+            if (card.GetComponent<Card>().mana <= mana_obj.GetComponent<Mana>().GetMana() && 
+                transform.parent.parent.parent.parent.GetComponent<Player>().board.cards.Count <= 4) {
                 transform.parent.GetComponentInChildren<PlayCard>().transform.GetChild(0).gameObject.SetActive(true);
             }
-        } else 
-        {
+        } else {
             transform.parent.GetComponentInChildren<PlayCard>().transform.GetChild(0).gameObject.SetActive(true);
         }
     }

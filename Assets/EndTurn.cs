@@ -8,6 +8,7 @@ public class EndTurn : MonoBehaviour
     public Button button;
     // Start is called before the first frame update
     void Start() {
+
     }
 
     // Update is called once per frame
@@ -15,7 +16,11 @@ public class EndTurn : MonoBehaviour
         
     }
 
-    private void Deactivate(int p) {
+    public int OtherPlayer(int p) {
+        return (p + 1) % 2;
+    }
+
+    public void Deactivate(int p) {
         var game = transform.parent.parent.gameObject.GetComponent<Game>();
         var player = game.players[p].GetComponent<Player>();
         
@@ -26,9 +31,13 @@ public class EndTurn : MonoBehaviour
 
     }
 
-    private void Activate(int p) {
+    public void Activate(int p) {
         var game = transform.parent.parent.gameObject.GetComponent<Game>();
         var player = game.players[p].GetComponent<Player>();
+
+        if (player.transform.tag.Equals("Opponent")) {
+            return;
+        }
 
         Card[] cards = player.GetComponentsInChildren<Card>();
         for (int i = 0; i < cards.Length; i++) {
@@ -41,16 +50,24 @@ public class EndTurn : MonoBehaviour
         var game = transform.parent.parent.gameObject.GetComponent<Game>();
 
         
-        var player = game.players[game.player_turn].GetComponent<Player>();
+        var player = game.players[OtherPlayer(game.player_turn)].GetComponent<Player>();
         player.GetComponentInChildren<Mana>().AddMana();
         string card_path = player.GetComponentInChildren<DeckCards>().NextCard();
         if (card_path != null) {
-            player.hand.AddCard(card_path);
+            if (player.hand.cards.Count <= 6) {
+                player.hand.AddCard(card_path);
+            } else {
+                print("My hand is too full");
+            }
         }
 
         Deactivate(game.player_turn);
-        game.player_turn = (1 + game.player_turn) % 2;
+        game.player_turn = OtherPlayer(game.player_turn);
         Activate(game.player_turn);
-
+        print("mumu mare la gabi " +player.transform.tag);
+        if (player.transform.tag.Equals("Opponent")) {
+            player.GetComponentInChildren<AI>().PlayCards();
+            
+        }
     }
 }

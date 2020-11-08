@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
         board.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y + board_hand_buf, 0);
         board.w = hand.w;
         board.ForceStart();
+
+        var game = GameObject.FindGameObjectWithTag("game").GetComponent<Game>();
+        transform.parent.GetComponentInChildren<EndTurn>().Activate(game.player_turn);
+        transform.parent.GetComponentInChildren<EndTurn>().Deactivate((game.player_turn + 1) % 2);
         
     }
 
