@@ -9,6 +9,7 @@ TagManager:
   - Card
   - game
   - Opponent
+  - Attack
   layers:
   - Default
   - TransparentFX

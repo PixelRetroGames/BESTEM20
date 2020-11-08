@@ -17,11 +17,14 @@ public class AI : MonoBehaviour
                 player.board.cards.Count <= 4) {
                 print(cards[i].name);
                 cards[i].GetComponentInChildren<PlayCard>().Play2(cards[i]);
-                // yield return new WaitForSecondsRealtime(1);
-                return;
             }
         }
 
+        cards = player.board.GetComponent<CardCollection>().cards;
+        for (int i = cards.Count - 1; i >= 0; i--) {
+            cards[i].GetComponentInChildren<PlayCard>().Play2(cards[i]);
+        }
+        transform.parent.parent.GetComponentInChildren<EndTurn>().OnClick();
     }
     void Start() {
         

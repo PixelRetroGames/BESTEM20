@@ -9,7 +9,16 @@ public class Card : MonoBehaviour
     public int id;
     public int mana, attack, hp;
     public string image, description;
+    public bool played = false;
 
+    public void UpdateText() {
+        Text[] attributes = GetComponentsInChildren<Text>();
+        attributes[0].text = attack.ToString();
+        attributes[1].text = hp.ToString();
+        attributes[2].text = name;
+        attributes[3].text = description;
+        attributes[4].text = mana.ToString();
+    }
 
     // Start is called before the first frame update
     public void Load(string file_path)
@@ -63,12 +72,7 @@ public class Card : MonoBehaviour
         }
 
         // Set the card attributes
-        Text[] attributes = GetComponentsInChildren<Text>();
-        attributes[0].text = attack.ToString();
-        attributes[1].text = hp.ToString();
-        attributes[2].text = name;
-        attributes[3].text = description;
-        attributes[4].text = mana.ToString();
+        UpdateText();
 
         // Set the card image
         SpriteRenderer image_sprite = (GetComponentsInChildren<SpriteRenderer>())[1];

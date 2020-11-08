@@ -42,6 +42,7 @@ public class EndTurn : MonoBehaviour
         Card[] cards = player.GetComponentsInChildren<Card>();
         for (int i = 0; i < cards.Length; i++) {
             cards[i].transform.GetChild(0).gameObject.SetActive(true);
+            cards[i].played = false;
         }
     }
 
