@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WindCondition : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class WindCondition : MonoBehaviour
         hp1 = game.players[0].GetComponentInChildren<Health>().health;
         hp2 = game.players[1].GetComponentInChildren<Health>().health;
         if (hp2 == 0) {
-            print("Player won!");
+            foreach (GameObject o in Object.FindObjectsOfType<GameObject>()) {
+                 Destroy(o);
+            }
+            Application.LoadLevel("WinScene");
         } else if (hp1 == 0) {
-            print("Opponent won!");
+            foreach (GameObject o in Object.FindObjectsOfType<GameObject>()) {
+                 Destroy(o);
+            }
+            Application.LoadLevel("OpponentWon");
         } 
     }
     // Start is called before the first frame update
